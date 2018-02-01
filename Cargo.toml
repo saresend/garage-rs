@@ -1,0 +1,9 @@
+[package]
+name = "garage"
+version = "0.1.0"
+authors = ["Samuel Resendez <saresend@usc.edu>"]
+
+[dependencies]
+quicli = "0.1"
+structopt = "0.1"
+serde = "1"
