@@ -1,9 +1,12 @@
 
 extern crate clap;
+#[macro_use]
+extern crate diesel;
+
 
 use clap::{App, Arg};
-
-
+use diesel::sqlite::SqliteConnection;
+use diesel::prelude::*;
 
 fn main() {
 
@@ -39,15 +42,19 @@ fn main() {
 
     }
 
+}
 
+fn establish_connection() -> SqliteConnection {
 
-
-
-
-
+    let database_url = String::from("data.sqlite");
+    SqliteConnection::establish(&database_url).unwrap()
 }
 
 
-fn handle_set(key_name: &str) {}
+fn handle_set(key_name: &str) {
+    let connection = establish_connection();
+
+
+}
 
 fn handle_get(key_name: &str) {}
