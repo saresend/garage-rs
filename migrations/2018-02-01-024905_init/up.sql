@@ -3,8 +3,8 @@
 
 
 CREATE TABLE KeyVal (
-	key TEXT primay key,
-	value TEXT not null, 
+	id INTEGER PRIMARY KEY NOT NULL,
+	value TEXT not null
 
 
 )
