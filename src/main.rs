@@ -26,9 +26,28 @@ fn main() {
         .get_matches();
 
 
+    let command = matches.value_of("CMD").unwrap();
+    let key_name = matches.value_of("KEYNAME").unwrap();
+
+    println!("{} {}", command, key_name);
+
+    match command {
+
+        "s" => handle_set(key_name),
+        "g" => handle_get(key_name),
+        _ => println!("Invalid CMD, please enter s for Set, or g for GET"),
+
+    }
+
+
 
 
 
 
 
 }
+
+
+fn handle_set(key_name: &str) {}
+
+fn handle_get(key_name: &str) {}
