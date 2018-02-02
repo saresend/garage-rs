@@ -26,21 +26,29 @@ fn main() {
         )
         .arg(
             Arg::with_name("KEYNAME")
-                .help("The Key Value to Get or Set")
+                .help("The Key to Get or Set")
                 .required(true)
                 .index(2),
+        )
+        .arg(
+            Arg::with_name("KEYVAL")
+                .help(
+                    "The value that you are trying to set. Only gets used on set commands",
+                )
+                .index(3),
         )
         .get_matches();
 
 
     let command = matches.value_of("CMD").unwrap();
     let key_name = matches.value_of("KEYNAME").unwrap();
+    let key_val = matches.value_of("KEYVAL").unwrap_or("nil");
 
     println!("{} {}", command, key_name);
 
     match command {
 
-        "s" => handle_set(key_name),
+        "s" => handle_set(key_name, key_val),
         "g" => handle_get(key_name),
         _ => println!("Invalid CMD, please enter s for Set, or g for GET"),
 
@@ -55,8 +63,11 @@ fn establish_connection() -> SqliteConnection {
 }
 
 
-fn handle_set(key_name: &str) {
+fn handle_set(key_name: &str, key_val: &str) {
     let connection = establish_connection();
+
+
+
 
 
 }
