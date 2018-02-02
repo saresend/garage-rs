@@ -71,4 +71,8 @@ fn handle_get(key_name: &str) {
         .load::<DataEntry>(&connection)
         .unwrap();
 
+    results
+        .into_iter()
+        .map(|x| println!("{}", x.value))
+        .collect::<()>();
 }

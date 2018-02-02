@@ -4,6 +4,7 @@
 
 #[derive(Queryable)]
 pub struct DataEntry {
-    key: String,
-    value: String,
+    pub id: i32,
+    pub key: String,
+    pub value: String,
 }
