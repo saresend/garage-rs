@@ -3,10 +3,14 @@ extern crate clap;
 #[macro_use]
 extern crate diesel;
 
+mod models;
+mod schema;
 
 use clap::{App, Arg};
 use diesel::sqlite::SqliteConnection;
 use diesel::prelude::*;
+use models::*;
+use schema::KeyVal::dsl::*;
 
 fn main() {
 
@@ -57,4 +61,14 @@ fn handle_set(key_name: &str) {
 
 }
 
-fn handle_get(key_name: &str) {}
+fn handle_get(key_name: &str) {
+
+    let connection = establish_connection();
+
+    let results = KeyVal
+        .filter(key.eq(key_name))
+        .limit(1)
+        .load::<DataEntry>(&connection)
+        .unwrap();
+
+}
