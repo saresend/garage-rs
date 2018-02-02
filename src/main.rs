@@ -67,6 +67,19 @@ fn handle_set(key_name: &str, key_val: &str) {
     let connection = establish_connection();
 
 
+    let new_entry = NewEntry {
+        key: String::from(key_name),
+        value: String::from(key_val),
+    };
+
+    match diesel::insert_into(KeyVal).values(&new_entry).execute(
+        &connection,
+    ) {
+        Ok(_) => println!("Entry Successfully Added!"),
+        Err(_) => println!("Couldn't add entry :("),
+
+    }
+
 
 
 

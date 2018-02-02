@@ -14,5 +14,5 @@ pub struct DataEntry {
 #[table_name = "KeyVal"]
 pub struct NewEntry {
     pub key: String,
-    pub val: String,
+    pub value: String,
 }
