@@ -76,7 +76,7 @@ fn handle_set(key_name: &str, key_val: &str) {
         &connection,
     ) {
         Ok(_) => println!("Entry Successfully Added!"),
-        Err(_) => println!("Couldn't add entry :("),
+        Err(e) => println!("{}", e),
 
     }
 
